@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">{{ video.MovieTitle }} ({{ video.ReleaseYear }})</h2>
+    <p><strong>Actor 1:</strong> {{ video.Actor1Name }}</p>
+    <p><strong>Actor 2:</strong> {{ video.Actor2Name }}</p>
+    <p><strong>Director:</strong> {{ video.DirectorName }}</p>
+    <p><strong>Genre:</strong> {{ video.MovieGenre }}</p>
+    <a href="{% url 'video_list' %}" class="btn btn-secondary">⬅ Back to list</a>
+  </div>
+</div>
+{% endblock %}

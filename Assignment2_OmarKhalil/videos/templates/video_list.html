@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mb-3">Video List</h1>
+<a href="{% url 'video_create' %}" class="btn btn-primary mb-3">➕ Add New Video</a>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for video in videos %}
+    <tr>
+      <td><a href="{% url 'video_detail' video.pk %}">{{ video.MovieTitle }}</a></td>
+      <td>{{ video.ReleaseYear }}</td>
+      <td>
+        <a href="{% url 'video_update' video.pk %}" class="btn btn-sm btn-warning">Edit</a>
+        <a href="{% url 'video_delete' video.pk %}" class="btn btn-sm btn-danger">Delete</a>
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="3">No videos found.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
